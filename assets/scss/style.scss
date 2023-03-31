@@ -1,2 +1,10 @@
-@import 'normalize';
-@import '_index';
+@use "libs/normalize";
+@use "common";
+@use "header"; 
+@use "experience";
+@use "services";
+@use "team";
+@use 'cases';
+@use 'trustcompanies';
+@use 'publications';
+@use 'footer';

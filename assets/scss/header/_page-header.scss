@@ -1,0 +1,154 @@
+@use "../libs/presets" as *;
+@use "../libs/mixins" as *;
+
+.page-header {
+  position: relative;
+
+  background: $liner-gradient;
+
+  @include xl-min {
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 418px;
+      height: 318px;
+
+      content: "";
+
+      background-image: url(../img/Frame2.svg);
+      background-repeat: no-repeat;
+      background-position: 100% 100%;
+    }
+
+    &::after {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      width: 376px;
+      height: 100px;
+
+      content: "";
+
+      background-image: url(../img/Frame2.svg);
+      background-repeat: no-repeat;
+      background-position: 0 0;
+    }
+  }
+
+  &__grid {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    left: 0;
+
+    display: grid;
+
+    @extend %container !optional;
+    grid-template-columns: auto 1fr;
+    @include sm-min {
+      top: 50px;
+
+      gap: $gap-sm $gap;
+      grid-template-areas: "logo actions" "logo menu";
+    }
+    @include sm {
+      top: $gap;
+
+      align-items: center;
+
+      gap: $gap;
+      grid-template-areas: "actions actions" "logo menu";
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  &__menu {
+    grid-area: menu;
+  }
+
+  &__actions {
+    grid-area: actions;
+  }
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    @include md-min {
+      &::before {
+        content: "";
+
+        background-image: url(../img/Frame2.svg);
+        background-repeat: no-repeat;
+        background-position: 50% 100%;
+
+        @include abs-position;
+      }
+    }
+
+    &::after {
+      z-index: 1;
+
+      content: "";
+
+      background: $liner-gradient2;
+
+      @include abs-position(calc(100% - 200px));
+    }
+
+    &-title {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+
+      width: min(100% - $gap-xl, 567px);
+      margin: 0;
+
+      transform: translate(-49%, -81%);
+      text-align: center;
+
+      color: $color-white;
+
+      font-size: 35px;
+      font-weight: 500;
+      line-height: 45px;
+    }
+
+    &-image {
+      position: absolute;
+
+      transform: translate(10px, 29%);
+
+      @media (min-height: 801px) {
+        height: 63vh;
+      }
+
+      @media (max-height: 800px) {
+        width: 600px;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    z-index: 2;
+    bottom: $gap;
+    left: 50%;
+
+    cursor: pointer;
+    transform: translateX(-50%);
+  }
+}

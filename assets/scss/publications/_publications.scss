@@ -1,0 +1,152 @@
+@use "../libs/presets" as *;
+@use "../libs/mixins" as *;
+
+.publications {
+  position: relative;
+  
+  &__container {
+    width: calc(3 * 414px + 202px);
+    margin-inline: auto;
+    
+    @include xx-ux {
+      width: 375px;
+      padding-left: 20px;
+    }
+    padding-top: 40px;
+    padding-left: 59px;
+    background: $color-gray-bg;
+    .end-separator {
+      
+      
+    }
+    .pub-link {
+      letter-spacing: 1px;
+      text-transform: uppercase;
+
+      font-size: 14px;
+      color: $color-active;
+
+      &::after {
+        display: inline-block;
+  
+        width: 12px;
+        height: 12px;
+  
+        content: "";
+        transform: translate(2px, 1px);
+        background-image: url(../img/LiinkArrow1.svg);
+      }
+    }
+    .more-publications {
+      position: absolute;
+      top: 790px;
+      padding-top: 100px;
+      width: calc(3 * 414px + 82px);
+      @include xx-ux {
+        width: 335px;
+        background: $color-gray-bg;
+        position:inherit;
+        padding-top: 40px;
+        height: 0;
+      }
+      height: 200px;
+      text-align: center;
+      background: linear-gradient(to bottom, rgba(255,0,0,0), $color-white);
+      border-bottom: 4px solid $color-gray-bg-separator;
+
+      button {
+        color: $color-white;
+        background: $color-active;
+        width: 250px;
+        height: 50px;
+        font-size: 14px;
+        border-color: $color-active;
+        box-shadow: 0px 0px 20px rgba(36, 163, 255, 0.5);
+        border-radius: 12px;
+      }
+    }
+  }
+  &__title {
+    margin-top: 3px;
+    font-weight: bold;
+
+    @include text-liner-gradient(true);
+    @include sm-min {
+      font-size: 42px;
+    }
+    @include sm {
+      font-size: 32px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    margin-top: 40px;
+    grid-template-columns: repeat(3, 413px);
+    column-gap: 41px;
+    
+    @include xx-ux {
+      grid-template-columns: 335px;
+      row-gap: 20px;
+    }
+
+    .pub-cell {
+      width: 413px;
+      height: 420px;
+      border-radius: 8px;
+      background: $color-white;
+      img {
+        width: 413px;
+        height: 233px;
+      }
+
+      @include xx-ux {
+        width: 335px;
+        height: 274px;
+
+        img {
+          width: 335px;
+          height: 189px;
+        }
+      }
+
+      .title-link {
+        max-height: 372px;
+        margin-top: 20px;
+        margin-left: 20px;
+
+        a {
+          font-size: 18px;
+        }
+      }
+
+      .pub-date {
+        margin-top: 20px;
+        margin-left: 20px;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+        color: $color-gray-bg-text;
+      }
+
+      .pub-separator {
+        border: 4px;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        background-color: $color-gray-bg-separator;
+      }
+
+      .pub-details {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+        max-width: 372px;
+        font-size: 16px;
+        @include xx-ux {
+          display: none;
+        }
+      }
+    }
+  }
+}

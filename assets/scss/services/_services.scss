@@ -1,0 +1,95 @@
+@use "../libs/presets" as *;
+@use "../libs/mixins" as *;
+
+.services {
+  position: relative;
+
+  padding-top: 40px;
+  padding-bottom: 80px;
+
+  border-radius: 0 0 12px 12px;
+  background: $liner-gradient3;
+
+  &::before {
+    position: absolute;
+    top: 100%;
+    right: $gap-xl;
+    left: $gap-xl;
+
+    height: 20px;
+
+    content: "";
+
+    border-radius: 0 0 12px 12px;
+    background-color: $color-gray-bg-separator;
+  }
+
+  &::after {
+    position: absolute;
+    top: 100%;
+    right: $gap;
+    left: $gap;
+
+    height: 10px;
+
+    content: "";
+
+    border-radius: 0 0 12px 12px;
+    background-color: $color-gray-bg-text;
+  }
+
+  &__container {
+    @extend %container;
+  }
+
+  &__page-link {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: rgba($color-white, 0.5);
+
+    font-size: 14px;
+
+    &::after {
+      display: inline-block;
+
+      width: 12px;
+      height: 12px;
+
+      content: "";
+      transform: translate(2px, 1px);
+
+      background-image: url(../img/LiinkArrow.svg);
+    }
+  }
+
+  &__title {
+    max-width: max-content;
+
+    line-height: $line-height;
+
+    @include text-liner-gradient(true);
+    @include sm-min {
+      margin-bottom: 60px;
+
+      font-size: 42px;
+    }
+    @include sm {
+      margin-bottom: 40px;
+
+      font-size: 32px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+
+    gap: 60px 40px;
+    @include xl-min {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include xl-md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

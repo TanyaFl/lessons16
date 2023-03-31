@@ -1,0 +1,45 @@
+@use "../libs/presets" as *;
+@use "../libs/mixins" as *;
+
+footer {
+  padding-left: 60px;
+  padding-right: 60px;
+  background: $color-gray-bg;
+  padding-top: 32px;
+  padding-bottom: 50px;
+
+  .footer-grid {
+    display: grid;
+    width: calc(3 * 414px + 82px);
+    margin-inline: auto;
+    row-gap: 22px;
+    grid-template-columns: 240px 210px auto;
+    grid-template-rows: 20px 40px;
+  }
+  .address-link {
+    font-size: 16px;
+    color: $color-primary;
+    font-style: normal;
+  }
+  .address-info {
+    display: flex;
+  }
+  .copyright-info {
+    text-align: right;
+    font-size: 16px;
+    color: $color-gray-bg-text;
+  }
+  .map-link {
+    margin-left: 31px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+  }
+  .phone {
+    color: $color-primary;
+    font-size: 16px;
+  }
+  .email {
+
+  }
+}

@@ -1,0 +1,10 @@
+@use "../libs/presets" as *;
+@use "../libs/mixins" as *;
+
+.logo {
+  &__image {
+    @include sm {
+      width: 120px;
+    }
+  }
+}
