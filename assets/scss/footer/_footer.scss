@@ -4,6 +4,10 @@
 footer {
   padding-left: 60px;
   padding-right: 60px;
+  @include xx-ux {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
   background: $color-gray-bg;
   padding-top: 32px;
   padding-bottom: 50px;
@@ -11,6 +15,13 @@ footer {
   .footer-grid {
     display: grid;
     width: calc(3 * 414px + 82px);
+    @include xx-ux {
+      margin-top: 50px;
+      width: 355px;
+      grid-template-columns: 355px;
+      justify-content: center;
+      justify-items: center;
+    }
     margin-inline: auto;
     row-gap: 22px;
     grid-template-columns: 240px 210px auto;
